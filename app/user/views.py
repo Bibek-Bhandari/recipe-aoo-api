@@ -20,10 +20,12 @@ class CreateTokenView(ObtainAuthToken):
     serializer_class = AuthTokenSerializer
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
+
 class ManageUserView(generics.RetrieveUpdateAPIView):
     """Manage the authenticated user."""
-    serializer_class= UserSerializer
-    authentication_classes= [authentication.TokenAuthentication]
+
+    serializer_class = UserSerializer
+    authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self):
